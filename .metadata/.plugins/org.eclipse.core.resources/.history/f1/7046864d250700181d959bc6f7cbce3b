@@ -1,0 +1,71 @@
+package db.model;
+import javax.naming.NamingException;
+
+import java.sql.*;
+import com.mysql.jdbc.Connection;
+
+public class MemberDAO extends ModelBase {
+	
+	private static final DataBaseSQLType DataBaseSQLType_insert = null;
+	private static MemberDAO instance;
+	
+	private MemberDAO(){
+		this.tableName = "member";
+	}
+	
+	public static MemberDAO getInstance(){
+		if(instance==null)
+			instance=new MemberDAO();
+		return instance;
+	}
+	
+	public StringBuffer currentSql(DataBaseSQLType sqlType) {
+		
+		StringBuffer sql = new StringBuffer();
+		if(sqlType == DataBaseSQLType_insert) {
+			
+			sql.append("insert into ");
+			sql.append(tableName);
+			sql.append("values(?, ?, ?)");
+		}
+		
+		return sql;	
+		 
+	}
+	
+	public PreparedStatement settingPstmt(PreparedStatement pstmt) {
+		
+		pstmt.setString(1, member.getMem_name());
+		pstmt.setString(2, member.getMem_id());
+		pstmt.setString(3, member.getMem_pwd());
+		return pstmt;	
+		 
+	}
+	
+	public void insert(Connection conn, MemberBean member) throws SQLException {
+		PreparedStatement pstmt = nil; 
+		
+		try {
+			conn.setAutoCommit(false);
+			
+			StringBuffer sql = currentSql(DataBaseSQLType_insert);
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt = settingPstmt(pstmt);
+			pstmt.executeUpdate();
+			conn.commit(); 
+			
+		} catch (SQLException sqle) {
+			
+			conn.rollback();
+			throw new RuntimeException(sqle.getMessage());
+		} finally {
+			try{
+				if ( pstmt != null ){ pstmt.close(); pstmt=null; }
+				if ( conn != null ){ conn.close(); conn=null;	}
+			}catch(Exception e){
+				throw new RuntimeException(e.getMessage());
+			}
+		} 
+	} 
+
+}

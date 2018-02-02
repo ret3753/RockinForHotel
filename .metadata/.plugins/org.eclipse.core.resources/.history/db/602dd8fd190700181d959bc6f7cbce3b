@@ -1,0 +1,30 @@
+package db;
+
+import java.sql.*;
+
+public class DataBaseManager {
+	
+	private static DataBaseManager instance = new DataBaseManager();
+	
+	public static DataBaseManager getInstance () {
+		return instance;
+	}
+	
+	public DataBaseManager() throws Exception {
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver"); // JDBC연결
+        } catch (ClassNotFoundException e) {
+            throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
+        }
+		
+		String DB_URL = "jdbc:mysql://localhost:3306/ROCKIN";
+		String DB_USER = "root";  
+		String DB_PASSWORD= "!qwer123";
+		Connection conn = null;
+		Statement stmt = null;
+		PreparedStatement pstmt = null;
+		conn = DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
+	}
+
+}

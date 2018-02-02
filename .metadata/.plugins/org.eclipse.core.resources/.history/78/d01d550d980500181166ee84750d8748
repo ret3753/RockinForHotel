@@ -1,0 +1,75 @@
+<link href="${cssPath}css/style.css" rel="stylesheet" type="text/css" />
+<link href="${cssPath}/gnb.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.funcOpnMenu').each(function() {
+			$(this).click(function() {
+				event.stopPropagation(event);
+				$(this).toggleClass('menuOn');
+				if ($(this).hasClass('animated')) {
+					$(this).find('ul').slideToggle();
+				} else {
+					$(this).find('ul').toggle();
+				}
+			});
+		});
+
+		$(window).click(function(e, target) {
+			$('.funcCloseMenu').hide();
+			$('.funcOpnMenu').removeClass('menuOn');
+		});
+	});
+</script>
+<header class="headerWrp">
+	<div class="contentsInner">
+		<h1>
+			<img src="${imagePath}/logo.gif"
+				alt="The Shilla Hotels & Resorts" />
+		</h1>
+		<nav>
+			<ul>
+				<li class="funcOpnMenu animated"><a href="javascript:void(0);"></a>
+					<ul class="funcCloseMenu">
+						<li class="hotelTit"><a href="#">The Shilla</a></li>
+						<li><a href="#">서울신라호텔</a></li>
+						<li><a href="#">제주신라호텔</a></li>
+						<li class="hotelTit"><a href="#">Shilla Stay</a></li>
+						<li><a href="#">신라스테이 동탄</a></li>
+						<li><a href="#">신라스테이 역삼</a></li>
+						<li><a href="#">신라스테이 제주</a></li>
+						<li><a href="#">신라스테이 서대문</a></li>
+						<li><a href="#">신라스테이 울산</a></li>
+						<li><a href="#">신라스테이 마포</a></li>
+						<li><a href="#">신라스테이 광화문</a></li>
+						<li><a href="#">신라스테이 구로</a></li>
+						<li><a href="#">신라스테이 천안</a></li>
+						<li><a href="#">신라스테이 서초</a></li>
+						<li><a href="#">신라스테이 해운대</a></li>
+					</ul></li>
+				<li><a href="#"><img
+						src="${imagePath}/hubMnuResevation.gif"
+						alt="" /></a></li>
+			</ul>
+			<ul>
+				<li><a href="#"><img
+						src="<%= request.getContextPath()%>/img/hubMnuIntro.gif" alt="" /></a></li>
+				<li><a href="#"><img
+						src="<%= request.getContextPath()%>/img/hubMnuQuestion.gif" alt="" /></a></li>
+				<li><a href="#"><img
+						src="<%= request.getContextPath()%>/img/hubMnuRewards.gif" alt="" /></a></li>
+			</ul>
+		</nav>
+		<ul class="memberMenu">
+			<li><a href="#">로그인</a></li>
+			<li><a href="#">신라리워즈 가입</a></li>
+			<li><a href="#">예약확인</a></li>
+			<li class="funcOpnMenu"><a href="javascript:void(0);">한국어</a>
+				<ul class="funcCloseMenu">
+					<li><a href="#">English</a></li>
+					<li><a href="#">日本語</a></li>
+					<li><a href="#">简体中文</a></li>
+				</ul></li>
+		</ul>
+	</div>
+</header>

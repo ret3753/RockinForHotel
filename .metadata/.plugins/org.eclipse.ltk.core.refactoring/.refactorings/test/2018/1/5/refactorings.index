@@ -1,0 +1,27 @@
+1517277008274	Delete element
+1517277020091	Delete element
+1517278087945	Delete element
+1517278351653	Rename resource 'Controler'
+1517278357981	Move 'css' to 'View'
+1517278468545	Move 'img' to 'Data'
+1517278486316	Move 'WEB-INF' to 'Common'
+1517278537961	Move 14 resources to 'Common'
+1517278546617	Move 2 resources to 'WebContent'
+1517278607244	Move 7 resources to 'View'
+1517278617970	Move 'member' to 'View'
+1517278644836	Move 'META-INF' to 'Common'
+1517278670921	Move 'js' to 'Controller'
+1517278676184	Delete element
+1517278679597	Move 'resv' to 'View'
+1517278681351	Move 'subPage' to 'View'
+1517278697375	Move 'index_backup.jsp' to 'Common'
+1517278867390	Move 'member' to 'Page'
+1517278871412	Move 10 resources to 'Page'
+1517282814045	Delete element
+1517291449410	Delete element
+1517291528251	Delete element
+1517291660290	Move 'web.xml' to 'WEB-INF'
+1517291663996	Delete element
+1517291668052	Move 2 resources to 'WebContent'
+1517298364190	Rename resource 'Page'
+1517301392700	Rename resource 'test.jsp'

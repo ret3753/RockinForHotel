@@ -1,0 +1,27 @@
+package common;
+import java.io.*;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+public class MyContextListener implements ServletContextListener {
+
+	@Override
+	public void contextDestroyed(ServletContextEvent event) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void contextInitialized(ServletContextEvent event) {
+		ServletContext sc = event.getServletContext();
+		
+//		File startFile = new File("start.txt");
+		try {
+//			sc.setAttribute("url", startFile.getCanonicalPath() );
+			sc.setAttribute("url", System.getProperty("user.dir"));
+		    } catch (IOException e) {
+		      System.err.println(e);
+		    } 
+		
+	}
+}

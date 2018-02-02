@@ -1,0 +1,65 @@
+package db.model;
+
+public class MemberDAO {
+	private static MemberDAO instance;
+	
+	private MemberDAO(){}
+	public static MemberDAO getInstance(){
+		if(instance==null)
+			instance=new MemberDAO();
+		return instance;
+	}
+	
+	public void insertMember(MemberBean member) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			// ƒø≥ÿº«¿ª ∞°¡Æø¬¥Ÿ.
+			conn = DBConnection.getConnection();
+			
+			// ¿⁄µø ƒøπ‘¿ª false∑Œ «—¥Ÿ.
+			conn.setAutoCommit(false);
+			
+			// ƒı∏Æ ª˝º∫«—¥Ÿ.
+			// ∞°¿‘¿œ¿« ∞ÊøÏ ¿⁄µø¿∏∑Œ ºº∆√µ«∞‘ «œ±‚ ¿ß«ÿ sysdate∏¶ ªÁøÎ
+			StringBuffer sql = new StringBuffer();
+			sql.append("insert into JSP_MEMBER values");
+			sql.append("(?, ?, ?, ?, ?, ?, ?, ?, sysdate)");		
+			stringToDate(member);
+			/* 
+			 * StringBufferø° ¥„±‰ ∞™¿ª æÚ¿∏∑¡∏È toString()∏ﬁº≠µÂ∏¶
+			 * ¿ÃøÎ«ÿæﬂ «—¥Ÿ.
+			 */
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPassword());
+			pstmt.setString(3, member.getName());
+			pstmt.setString(4, member.getGender());
+			pstmt.setDate(5, stringToDate(member));
+			pstmt.setString(6, member.getMail1()+"@"+member.getMail2());
+			pstmt.setString(7, member.getPhone());
+			pstmt.setString(8, member.getAddress());
+			
+			// ƒı∏Æ Ω««‡
+			pstmt.executeUpdate();
+			// øœ∑·Ω√ ƒøπ‘
+			conn.commit(); 
+			
+		} catch (ClassNotFoundException | NamingException | SQLException sqle) {
+			// ø¿∑˘Ω√ ∑—πÈ
+			conn.rollback(); 
+			
+			throw new RuntimeException(sqle.getMessage());
+		} finally {
+			// Connection, PreparedStatement∏¶ ¥›¥¬¥Ÿ.
+			try{
+				if ( pstmt != null ){ pstmt.close(); pstmt=null; }
+				if ( conn != null ){ conn.close(); conn=null;	}
+			}catch(Exception e){
+				throw new RuntimeException(e.getMessage());
+			}
+		} // end try~catch 
+	} // end insertMember()
+
+}

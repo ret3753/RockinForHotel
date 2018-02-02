@@ -1,0 +1,10 @@
+package db;
+
+public enum DataBaseManagerConst {
+	DataBaseTableType_Member
+}
+
+
+public enum DataBaseSQLType {
+	DataBaseSQLType_insert
+}

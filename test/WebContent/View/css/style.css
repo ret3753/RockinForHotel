@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {margin:0; padding:0; list-style: none; text-decoration: none; box-sizing: border-box; font-family: Dotum,'돋움',sans-serif,Arial, Helvetica;}
+
+.contentsInner {max-width:1200px; width:100%; position:relative; margin:0 auto}

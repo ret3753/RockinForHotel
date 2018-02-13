@@ -6,29 +6,30 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="headerWrp" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="request"/>
-			<item value="gif"/>
-			<item value="png"/>
-			<item value="${imagePath}"/>
-			<item value="/Data/img"/>
+			<item value="headerWrp"/>
+			<item value="DB_PASSWORD"/>
+			<item value="name"/>
 			<item value="css"/>
-			<item value="pagePath"/>
-			<item value="/member"/>
-			<item value="&lt;%=request.getContextPath()%&gt;"/>
-			<item value="/img"/>
-			<item value="header.jsp"/>
-			<item value="&lt;%=request.getContextPath()%&gt;/"/>
-			<item value="img/"/>
-			<item value="img"/>
-			<item value="this.getClass().getResource(&quot;/&quot;).getPath()"/>
+			<item value="createPstmt"/>
+			<item value="settingPstmt"/>
+			<item value="MemberBean"/>
+			<item value="pstmt"/>
+			<item value="getInstance"/>
+			<item value="userID"/>
+			<item value="member"/>
+			<item value="Statement"/>
+			<item value="stmt"/>
+			<item value="sql"/>
+			<item value="sql "/>
 		</list>
 		<list key="replacehistory">
+			<item value="/test/Data"/>
 			<item value="/Data/img"/>
 			<item value=""/>
 			<item value="${imagePath}"/>

@@ -1,0 +1,23 @@
+package common;
+
+
+@Override public String toString() {
+	
+}
+
+
+public class Check {
+
+	String toHangul(String s){
+		String changeString = s;
+		try{
+			if (s != null) {
+				changeString= new String(s.getBytes("8859_1"),"utf-8");
+			}
+				
+		} catch (Exception e) {
+
+		}
+		return changeString;
+	}
+}

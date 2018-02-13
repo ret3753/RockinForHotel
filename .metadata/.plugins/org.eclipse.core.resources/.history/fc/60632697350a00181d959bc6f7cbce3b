@@ -1,0 +1,44 @@
+package db.model;
+
+import java.lang.reflect.Field;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+enum DataBaseSQLType {
+	insert
+}
+
+public class ModelBase {
+	public String tableName = "";
+	
+	public static String currentTabelName() {
+		return "";
+	}
+public static PreparedStatement createPstmt(Connection conn, MemberBean member, DataBaseSQLType sqlType) throws SQLException {
+		
+		StringBuffer sql = new StringBuffer();
+		
+		switch(sqlType) {
+		case insert: {
+			
+			Field [] attributes =  member.getClass().getDeclaredFields();
+			
+			sql.append("insert into ");
+			sql.append(currentTabelName());
+			sql.append("(mem_name,mem_id,mem_pwd)");
+			sql.append("values(?, ?, ?)");
+		}
+		break;
+		
+		}
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		pstmt.setString(1, member.getUserName());
+		pstmt.setString(2, member.getUserID());
+		pstmt.setString(3, member.getUserPWD());
+		
+		return pstmt;
+	
+	}
+}

@@ -1,0 +1,9 @@
+package common;
+
+
+public class Object {
+
+	public boolean isEqlsClass(Object object) {
+		return true;
+	}
+}

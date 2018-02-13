@@ -20,9 +20,13 @@
 	</section>
 	<section name="NewWizardAction">
 	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="984" key="DIALOG_X_ORIGIN"/>
+		<item value="552" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.springsource.ide.eclipse.commons.quicksearch.ui.QuickSearchDialog.DIALOG_SETTINGS">
 		<item value="true" key="CASE_SENSITIVE"/>
-		<item value="" key="LAST_QUERY"/>
+		<item value="child" key="LAST_QUERY"/>
 		<list key="SASH_WEIGHTS">
 			<item value="833"/>
 			<item value="166"/>

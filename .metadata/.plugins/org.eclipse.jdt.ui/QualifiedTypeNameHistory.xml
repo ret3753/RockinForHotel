@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpUtils"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="javax.naming.NamingException"/>
+    <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+    <fullyQualifiedTypeName name="db.model.MemberDAO"/>
+    <fullyQualifiedTypeName name="common.Check"/>
+    <fullyQualifiedTypeName name="com.mysql.jdbc.Field"/>
+    <fullyQualifiedTypeName name="db.model.ModelBase"/>
+    <fullyQualifiedTypeName name="common.Object"/>
 </qualifiedTypeNameHistroy>

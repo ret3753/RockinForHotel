@@ -1,0 +1,48 @@
+package db.model;
+
+import java.lang.reflect.Field;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+enum DataBaseSQLType {
+	insert
+}
+
+public class ModelBase {
+
+	
+	public static PreparedStatement createPstmt(Connection conn, MemberBean member, DataBaseSQLType sqlType) throws SQLException {
+		return null;
+	}
+	
+	public static void insert(Connection conn, MemberBean member) throws SQLException {
+
+		PreparedStatement pstmt = null;
+
+		try {
+
+			conn.setAutoCommit(false);
+			pstmt = createPstmt(conn, member,DataBaseSQLType.insert);
+			pstmt.executeUpdate();
+			conn.commit();
+
+		} catch (SQLException sqle) {
+
+			conn.rollback();
+			throw new RuntimeException(sqle.getMessage());
+		} finally {
+			try{
+				if ( pstmt != null ){ pstmt.close(); pstmt=null; }
+				if ( conn != null ){ conn.close(); conn=null;	}
+			}catch(Exception e){
+				throw new RuntimeException(e.getMessage());
+			}
+		} 
+	}
+
+	public String currentTabelName() {
+		// TODO Auto-generated method stub
+		return null;
+	} 
+}

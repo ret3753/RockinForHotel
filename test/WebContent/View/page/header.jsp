@@ -8,7 +8,6 @@
   
         <meta charset="UTF-8" />
         <title>신라호텔</title>
-		<link href="${cssPath}/style.css" rel="stylesheet" type="text/css" />
 		<link href="${cssPath}/gnb.css" rel="stylesheet" type="text/css" />
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 	</head>

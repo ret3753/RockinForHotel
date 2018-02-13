@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" import="java.sql.*"%>
+<link href="${cssPath}/style.css" rel="stylesheet" type="text/css" />
 
 <script>
 	$(document).ready(function() {
@@ -23,8 +24,8 @@
 <header class="headerWrp">
 	<div class="contentsInner">
 		<h1>
-			<a href="${mainPath}/index.jsp"> 
-			<img src="${imagePath}/logo.gif" alt="The Shilla Hotels & Resorts" />
+			<a href="${mainPath}/index.jsp"> <img src="${imagePath}/logo.gif"
+				alt="The Shilla Hotels & Resorts" />
 			</a>
 		</h1>
 		<nav>
@@ -48,17 +49,15 @@
 						<li><a href="#">신라스테이 해운대</a></li>
 					</ul></li>
 				<li><a href="#"><img
-						src="${imagePath}/hubMnuResevation.gif"
-						alt="" /></a></li>
+						src="${imagePath}/hubMnuResevation.gif" alt="" /></a></li>
 			</ul>
 			<ul>
-				<li><a
-					href="${pagePath}/subPage/subPage.jsp"><img
+				<li><a href="${pagePath}/subPage/subPage.jsp"><img
 						src="${imagePath}/hubMnuIntro.gif" alt="" /></a></li>
-				<li><a href="#"><img
-						src="${imagePath}/hubMnuQuestion.gif" alt="" /></a></li>
-				<li><a href="#"><img
-						src="${imagePath}/hubMnuRewards.gif" alt="" /></a></li>
+				<li><a href="#"><img src="${imagePath}/hubMnuQuestion.gif"
+						alt="" /></a></li>
+				<li><a href="#"><img src="${imagePath}/hubMnuRewards.gif"
+						alt="" /></a></li>
 			</ul>
 		</nav>
 		<ul class="memberMenu">

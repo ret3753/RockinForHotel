@@ -1,7 +1,0 @@
-package db.model;
-
-import java.sql.SQLException;
-
-public class ModelBase {
-	public String tableName = "";
-}

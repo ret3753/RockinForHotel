@@ -1,0 +1,5 @@
+package db.model;
+
+public class Check {
+
+}

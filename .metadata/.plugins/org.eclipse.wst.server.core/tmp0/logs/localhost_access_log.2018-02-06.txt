@@ -1,0 +1,4 @@
+127.0.0.1 - - [06/Feb/2018:12:20:33 +0900] "GET / HTTP/1.1" 404 1073
+127.0.0.1 - - [06/Feb/2018:12:23:58 +0900] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [06/Feb/2018:12:23:59 +0900] "GET /test/View/page/reservation/reservationForNavigationHistory.jsp HTTP/1.1" 200 474
+0:0:0:0:0:0:0:1 - - [06/Feb/2018:12:24:20 +0900] "GET /test/View/page/reservation/reservationForNavigationHistory.jsp HTTP/1.1" 200 474

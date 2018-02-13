@@ -1,0 +1,72 @@
+//데이터베이스를 관리하는 클래스
+package db;
+
+import common.db.model.*;
+import java.sql.*;
+
+import db.model.*;
+
+public class DataBaseManager {
+
+	private static DataBaseManager instance = new DataBaseManager();
+
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/ROCKIN";
+	private static final String DB_USER = "root";
+	private static final String DB_PASSWORD= "!qwer123";
+	Connection conn = null;
+
+	public DataBaseManager() {
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver"); // JDBC연결
+		} catch (ClassNotFoundException e) {
+			try {
+				throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
+			} catch (ClassNotFoundException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+
+	//public static func
+	public static DataBaseManager getInstance () {
+		return instance;
+	}
+
+	//public func
+	public void insert (Object object) {
+		
+		this.dbConnection();
+		try {
+
+			
+			if (object instanceof MemberBean) {
+				MemberDAO.insert(conn, (MemberBean)object);
+			}
+				
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.dbUnConnection();
+	}
+
+	//private func
+	private void dbConnection() {
+		try {
+			conn = DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void dbUnConnection() {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

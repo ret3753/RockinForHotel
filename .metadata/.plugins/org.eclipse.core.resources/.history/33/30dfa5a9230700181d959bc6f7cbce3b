@@ -1,5 +1,0 @@
-package db.model;
-
-public class ModelBase {
-	public String tableName = "";
-}

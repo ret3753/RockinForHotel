@@ -1,3 +1,4 @@
+//회원정보를 전달할 자바빈(프로퍼티만 있는 빈클래스)
 package db.model;
 
 public class MemberBean {

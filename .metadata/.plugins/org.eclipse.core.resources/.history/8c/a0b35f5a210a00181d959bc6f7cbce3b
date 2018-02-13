@@ -1,0 +1,63 @@
+//회원정보테이블의 데이터 처리를 담당하는 클래스
+package db.model;
+
+import java.sql.*;
+
+public class MemberDAO extends ModelBase {
+
+	public static StringBuffer currentSql(DataBaseSQLType sqlType) {
+
+		String tableName = "member";
+		StringBuffer sql = new StringBuffer();
+		switch(sqlType) {
+		case insert: {
+			sql.append("insert into ");
+			sql.append(tableName);
+			sql.append("(mem_name,mem_id,mem_pwd)");
+			sql.append("values(?, ?, ?)");
+		}
+		break;
+		
+		}
+		
+		return sql;
+	}
+
+	public static void settingPstmt(PreparedStatement pstmt, MemberBean member) throws SQLException {
+		
+		Field [] attributes =  MemberBean.class.getDeclaredFields();
+		
+		pstmt.setString(1, member.getUserName());
+		pstmt.setString(2, member.getUserID());
+		pstmt.setString(3, member.getUserPWD());	
+
+	}
+
+	public static void insert(Connection conn, MemberBean member) throws SQLException {
+
+		PreparedStatement pstmt = null;
+
+		try {
+			conn.setAutoCommit(false);
+
+			StringBuffer sql = currentSql(DataBaseSQLType.insert);
+			pstmt = conn.prepareStatement(sql.toString());
+			settingPstmt(pstmt, member);
+			pstmt.executeUpdate();
+			conn.commit();
+
+		} catch (SQLException sqle) {
+
+			conn.rollback();
+			throw new RuntimeException(sqle.getMessage());
+		} finally {
+			try{
+				if ( pstmt != null ){ pstmt.close(); pstmt=null; }
+				if ( conn != null ){ conn.close(); conn=null;	}
+			}catch(Exception e){
+				throw new RuntimeException(e.getMessage());
+			}
+		} 
+	} 
+
+}
